@@ -155,6 +155,26 @@ a:hover {
     color: var(--text-primary);
 }
 
+.hero-image {
+    margin-bottom: var(--space-4);
+}
+
+.headshot {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
+    border: 2px solid #e67e22;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.headshot:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 .hero-tagline {
     font-size: var(--font-size-lg);
     color: var(--text-secondary);
@@ -304,12 +324,16 @@ a:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    text-decoration: none;
+    color: inherit;
 }
 
 .article-item:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-1px);
     border-color: var(--primary-color);
+    text-decoration: none;
+    color: inherit;
 }
 
 .article-item h4 {
@@ -318,6 +342,7 @@ a:hover {
     font-weight: 600;
     line-height: 1.3;
     flex: 1;
+    color: var(--text-primary);
 }
 
 .article-item h4 a {
@@ -327,7 +352,7 @@ a:hover {
 }
 
 .article-item h4 a:hover {
-    color: var(--primary-color);
+    color: var(--text-primary);
 }
 
 .article-meta {
@@ -355,20 +380,122 @@ a:hover {
     display: flex;
     flex-direction: column;
     height: 100%;
+    justify-content: space-between;
+    text-decoration: none;
+    color: inherit;
 }
 
 .investment-item:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-1px);
     border-color: var(--primary-color);
+    text-decoration: none;
+    color: inherit;
 }
 
 .investment-item h4 {
     margin: 0 0 var(--space-1) 0;
     font-size: var(--font-size-sm);
     font-weight: 600;
-    line-height: 1.3;
-    flex: 1;
+    line-height: 1.2;
+    text-align: left;
+    align-self: flex-start;
+    color: var(--text-primary);
+}
+
+.investment-item h4 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.investment-item h4 a:hover {
+    color: var(--text-primary);
+}
+
+/* Culture Tent specific styling */
+.culture-tent-content {
+    background: var(--background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    min-height: auto;
+    height: auto;
+    overflow: visible;
+}
+
+.culture-tent-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-2);
+}
+
+.culture-tent-header h4 {
+    margin: 0;
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.culture-tent-summary {
+    margin: 0 0 var(--space-2) 0;
+    font-style: italic;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.culture-tent-image {
+    margin: var(--space-2) 0;
+    text-align: center;
+}
+
+.culture-tent-photo {
+    max-width: 70%;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.culture-tent-description {
+    margin: 0 0 var(--space-2) 0;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.culture-tent-description:last-child {
+    margin-bottom: 0;
+}
+
+.culture-tent-role {
+    margin: var(--space-2) 0 0 0;
+    font-style: italic;
+    font-size: var(--font-size-sm);
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Project cards specific styling */
+.project-details .investment-item .project-links {
+    margin-bottom: var(--space-1);
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+}
+
+/* Ensure project cards use vertical layout */
+.project-details .investment-item {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.project-details .investment-item h4 {
+    margin: 0 0 var(--space-1) 0;
+    text-align: left;
+    align-self: flex-start;
 }
 
 .investment-item h4 a {
@@ -390,8 +517,44 @@ a:hover {
     line-height: 1.2;
 }
 
+/* Project header with links - consolidated above */
+
+.project-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    border-radius: var(--radius-sm);
+}
+
+.project-link:hover {
+    color: var(--primary-dark);
+    background-color: var(--background-alt);
+    transform: scale(1.1);
+}
+
+.project-description {
+    margin: var(--space-2) 0;
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    line-height: 1.4;
+    flex-grow: 1; /* Allow description to take up available space */
+}
+
+.project-role {
+    margin: 0;
+    font-size: var(--font-size-xs);
+    color: var(--text-light);
+    font-style: italic;
+    margin-top: auto; /* Push to bottom */
+    text-align: left; /* Ensure left alignment */
+}
+
 .project-card[data-expanded="true"] .project-details {
-    max-height: 1000px;
+    max-height: 3000px;
     padding: var(--space-3);
     opacity: 1;
 }
@@ -456,8 +619,26 @@ a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: var(--space-3);
+    gap: var(--space-4);
     flex-wrap: wrap;
+}
+
+.connect-text {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: 400;
+}
+
+.arrow-icon {
+    color: var(--text-secondary);
+    transition: transform 0.3s ease;
+}
+
+.connect-text:hover .arrow-icon {
+    transform: translateX(4px);
 }
 
 .find-me h2 {
